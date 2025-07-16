@@ -17,17 +17,88 @@
       <h1>MeowLand - котики, яких ти полюбиш</h1>
     </header>
     <main>
-      <section></section>
-      <!--Настя-->
-      <section></section>
-      <!-- Пуся-->
-      <section></section>
-      <!--Миша-->
-
       <div class="container">
-        <div class="box">1</div>
-        <div class="box">2</div>
-        <div class="box">3</div>
+        <div class="box">
+          <div class="boxmidleone"></div>
+          <button class="like-button" onclick="toggleLike(this)">
+            <img
+              src="/resources/VERT_cute-cartoon-cat-icon_738849-427.png"
+              alt="лайк-котика"
+            />
+            <span class="like-count">0</span>
+          </button>
+          <script>
+            function toggleLike(button) {
+              const countSpan = button.querySelector(".like-count");
+              let count = parseInt(countSpan.textContent);
+
+              if (button.classList.contains("liked")) {
+                count--;
+                button.classList.remove("liked");
+              } else {
+                count++;
+                button.classList.add("liked");
+              }
+
+              countSpan.textContent = count;
+            }
+          </script>
+        </div>
+        <div class="box">
+          <div class="boxmidletwo"></div>
+          <button class="like-button" onclick="toggleLike(this)">
+            <img
+              src="/resources/VERT_cute-cartoon-cat-icon_738849-427.png"
+              alt="лайк-котика"
+            />
+            <span class="like-count">0</span>
+          </button>
+          <script>
+            function toggleLike(button) {
+              const countSpan = button.querySelector(".like-count");
+              let count = parseInt(countSpan.textContent);
+
+              if (button.classList.contains("liked")) {
+                count--;
+                button.classList.remove("liked");
+              } else {
+                count++;
+                button.classList.add("liked");
+              }
+
+              countSpan.textContent = count;
+            }
+          </script>
+        </div>
+        <div class="box">
+          <div class="boxmidlethree"></div>
+          <div class="name-box">
+            <h2 class="name-cat">Kotik</h2>
+            <button class="like-button" onclick="toggleLike(this)">
+              <img
+                src="/resources/VERT_cute-cartoon-cat-icon_738849-427.png"
+                alt="лайк-котика"
+              />
+              <span class="like-count">0</span>
+            </button>
+            <script>
+              function toggleLike(button) {
+                const countSpan = button.querySelector(".like-count");
+                let count = parseInt(countSpan.textContent);
+
+                if (button.classList.contains("liked")) {
+                  count--;
+                  button.classList.remove("liked");
+                } else {
+                  count++;
+                  button.classList.add("liked");
+                }
+
+                countSpan.textContent = count;
+              }
+            </script>
+          </div>
+        </div>
       </div>
     </main>
     <footer></footer>
