@@ -7,6 +7,12 @@
     <link rel="stylesheet" href="styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Winky+Rough:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
     <link
       href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
       rel="stylesheet"
@@ -20,55 +26,61 @@
       <div class="container">
         <div class="box">
           <div class="boxmidleone"></div>
-          <button class="like-button" onclick="toggleLike(this)">
-            <img
-              src="/resources/VERT_cute-cartoon-cat-icon_738849-427.png"
-              alt="лайк-котика"
-            />
-            <span class="like-count">0</span>
-          </button>
-          <script>
-            function toggleLike(button) {
-              const countSpan = button.querySelector(".like-count");
-              let count = parseInt(countSpan.textContent);
+          <div class="name-box">
+            <h2 class="name-cat">Tiffany</h2>
+            <button class="like-button" onclick="toggleLike(this)">
+              <img
+                src="/resources/VERT_cute-cartoon-cat-icon_738849-427.png"
+                alt="лайк-котика"
+              />
+              <span class="like-count">0</span>
+            </button>
+            <script>
+              function toggleLike(button) {
+                const countSpan = button.querySelector(".like-count");
+                let count = parseInt(countSpan.textContent);
 
-              if (button.classList.contains("liked")) {
-                count--;
-                button.classList.remove("liked");
-              } else {
-                count++;
-                button.classList.add("liked");
+                if (button.classList.contains("liked")) {
+                  count--;
+                  button.classList.remove("liked");
+                } else {
+                  count++;
+                  button.classList.add("liked");
+                }
+
+                countSpan.textContent = count;
               }
-
-              countSpan.textContent = count;
-            }
-          </script>
+            </script>
+          </div>
         </div>
         <div class="box">
           <div class="boxmidletwo"></div>
-          <button class="like-button" onclick="toggleLike(this)">
-            <img
-              src="/resources/VERT_cute-cartoon-cat-icon_738849-427.png"
-              alt="лайк-котика"
-            />
-            <span class="like-count">0</span>
-          </button>
-          <script>
-            function toggleLike(button) {
-              const countSpan = button.querySelector(".like-count");
-              let count = parseInt(countSpan.textContent);
+          <div class="name-box">
+            <h2 class="name-cat">Pusia</h2>
+            <button class="like-button" onclick="toggleLike(this)">
+              <img
+                src="/resources/VERT_cute-cartoon-cat-icon_738849-427.png"
+                alt="лайк-котика"
+              />
+              <span class="like-count">0</span>
+            </button>
+            <script>
+              function toggleLike(button) {
+                const countSpan = button.querySelector(".like-count");
+                let count = parseInt(countSpan.textContent);
 
-              if (button.classList.contains("liked")) {
-                count--;
-                button.classList.remove("liked");
-              } else {
-                count++;
-                button.classList.add("liked");
+                if (button.classList.contains("liked")) {
+                  count--;
+                  button.classList.remove("liked");
+                } else {
+                  count++;
+                  button.classList.add("liked");
+                }
+
+                countSpan.textContent = count;
               }
-
-              countSpan.textContent = count;
-            }
-          </script>
+            </script>
+          </div>
         </div>
         <div class="box">
           <div class="boxmidlethree"></div>
