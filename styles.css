@@ -194,19 +194,6 @@ header > h1 {
   margin-left: 100px;
 }
 
-/* .items {
-  display: flex;
-  animation: slide 50s linear infinite;
-}
-@keyframes slide {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-} */
-
 .item {
   height: 300px;
   width: 300px;
