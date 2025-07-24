@@ -22,10 +22,8 @@
     </header>
     <main>
       <div class="carousel-container">
-        <button class="carousel-button prev" onclick="scrollCarousel(-1)">
-          ←
-        </button>
-        <div class="carousel-track" id="carouselTrack">
+        <button class="carousel-button" onclick="scrollCarousel(-1)">←</button>
+        <div class="carousel-viewport">
           <div class="container">
             <div class="box">
               <div class="boxmidleone"></div>
@@ -159,9 +157,7 @@
             </div>
           </div>
         </div>
-        <button class="carousel-button next" onclick="scrollCarousel(1)">
-          →
-        </button>
+        <button class="carousel-button" onclick="scrollCarousel(1)">→</button>
       </div>
     </main>
     <footer></footer>
@@ -181,5 +177,23 @@
         countSpan.textContent = count;
       }
     </script>
+    <script>
+  let currentIndex = 0;
+
+  function scrollCarousel(direction) {
+    const container = document.querySelector(".container");
+    const boxWidth = 760; // 600px + 70px отступ
+    const visibleCount = 3;
+    const totalBoxes = container.children.length;
+    const maxIndex = totalBoxes - visibleCount;
+
+    currentIndex += direction;
+    if (currentIndex < 0) currentIndex = 0;
+    if (currentIndex > maxIndex) currentIndex = maxIndex;
+
+    const offset = currentIndex * boxWidth;
+    container.style.transform = `translateX(-${offset}px)`;
+  }
+</script>
   </body>
 </html>
