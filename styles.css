@@ -66,16 +66,19 @@ header > h1 {
 }
 
 .carousel-button {
-  font-size: 60px;
-  background: rgba(255, 255, 255, 0.6);
+  /* position: fixed; */
+  /* top: 50%; */
+  margin-right: 10px;
+  opacity: 0.6;
+  background: none;
   border: none;
   cursor: pointer;
-  padding: 20px;
-  border-radius: 30px;
-  transition: transform 0.2s ease;
+  transition: opacity 0.1s ease;
+  transition: transform 0.4s ease;
 }
 
 .carousel-button:hover {
+  opacity: 1;
   transform: scale(1.2);
 }
 
@@ -262,4 +265,11 @@ header > h1 {
   position: relative;
   z-index: 1;
   margin-left: 100px;
+}
+
+.copyright {
+  font-family: "Pacifico", cursive;
+  text-align: center;
+  color: rgb(145, 20, 138);
+  margin: 0;
 }

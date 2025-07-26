@@ -22,7 +22,22 @@
     </header>
     <main>
       <div class="carousel-container">
-        <button class="carousel-button" onclick="scrollCarousel(-1)">←</button>
+        <button class="carousel-button" onclick="scrollCarousel(-1)">
+          <svg
+            width="70"
+            height="70"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M15.5 17C15.5 17.4045 15.2564 17.7691 14.8827 17.9239C14.509 18.0787 14.0789 17.9931 13.7929 17.7071L8.79289 12.7071C8.40237 12.3166 8.40237 11.6834 8.79289 11.2929L13.7929 6.29292C14.0789 6.00692 14.509 5.92137 14.8827 6.07615C15.2564 6.23093 15.5 6.59557 15.5 7.00003V17Z"
+              fill="black"
+            />
+          </svg>
+        </button>
         <div class="carousel-viewport">
           <div class="container">
             <div class="box">
@@ -157,10 +172,27 @@
             </div>
           </div>
         </div>
-        <button class="carousel-button" onclick="scrollCarousel(1)">→</button>
+        <button class="carousel-button" onclick="scrollCarousel(1)">
+          <svg
+            width="70"
+            height="70"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M8.5 17C8.5 17.4045 8.74364 17.7691 9.11732 17.9239C9.49099 18.0787 9.92111 17.9931 10.2071 17.7071L15.2071 12.7071C15.5976 12.3166 15.5976 11.6834 15.2071 11.2929L10.2071 6.29292C9.92111 6.00692 9.49099 5.92137 9.11732 6.07615C8.74364 6.23093 8.5 6.59557 8.5 7.00003V17Z"
+              fill="black"
+            />
+          </svg>
+        </button>
       </div>
     </main>
-    <footer></footer>
+    <footer>
+      <p class="copyright">© 2025 goyourpunch. All rights reserved.</p>
+    </footer>
     <script>
       function toggleLike(button) {
         const countSpan = button.querySelector(".like-count");
@@ -178,22 +210,22 @@
       }
     </script>
     <script>
-  let currentIndex = 0;
+      let currentIndex = 0;
 
-  function scrollCarousel(direction) {
-    const container = document.querySelector(".container");
-    const boxWidth = 760; // 600px + 70px отступ
-    const visibleCount = 3;
-    const totalBoxes = container.children.length;
-    const maxIndex = totalBoxes - visibleCount;
+      function scrollCarousel(direction) {
+        const container = document.querySelector(".container");
+        const boxWidth = 760; // 600px + 70px отступ
+        const visibleCount = 3;
+        const totalBoxes = container.children.length;
+        const maxIndex = totalBoxes - visibleCount;
 
-    currentIndex += direction;
-    if (currentIndex < 0) currentIndex = 0;
-    if (currentIndex > maxIndex) currentIndex = maxIndex;
+        currentIndex += direction;
+        if (currentIndex < 0) currentIndex = 0;
+        if (currentIndex > maxIndex) currentIndex = maxIndex;
 
-    const offset = currentIndex * boxWidth;
-    container.style.transform = `translateX(-${offset}px)`;
-  }
-</script>
+        const offset = currentIndex * boxWidth;
+        container.style.transform = `translateX(-${offset}px)`;
+      }
+    </script>
   </body>
 </html>
