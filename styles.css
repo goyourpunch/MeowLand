@@ -1,5 +1,5 @@
 body {
-  background-image: url(/resources/cat11.jpg);
+  background-image: url(/resources/background.jpg);
   margin: 0;
   animation: moveBackgroundToTopRight 20s linear infinite alternate;
 }
@@ -61,13 +61,13 @@ header > h1 {
   display: flex;
   /* justify-content: space-between; */
   transition: tranform 0.5s ease;
-  gap: 150px;
-  /* padding: 0 50px; */
+  gap: 200px;
+  padding: 0 0 0 130px;
 }
 
 .carousel-button {
-  /* position: fixed; */
-  /* top: 50%; */
+  position: fixed;
+  top: 50%;
   margin-right: 10px;
   opacity: 0.6;
   background: none;
@@ -82,6 +82,14 @@ header > h1 {
   transform: scale(1.2);
 }
 
+.back {
+  left: 0;
+}
+
+.next {
+  right: 0;
+}
+
 .box {
   width: 610px;
   height: 900px;
@@ -94,7 +102,7 @@ header > h1 {
 .boxmidleone {
   width: 600px;
   height: 700px;
-  background-image: url(/resources/cat2-1024x676.jpg);
+  background-image: url(/resources/tiffany.jpg);
   background-size: cover;
   background-position: center;
   /* margin: 40px 0 0 70px; */
@@ -116,7 +124,7 @@ header > h1 {
 .boxmidlethree {
   width: 600px;
   height: 700px;
-  background-image: url(/resources/catpush.jpg);
+  background-image: url(/resources/kotik.jpg);
   background-size: cover;
   background-position: center;
   /* margin: 40px 0 0 70px; */
@@ -127,7 +135,7 @@ header > h1 {
 .boxmidlefour {
   width: 600px;
   height: 700px;
-  background-image: url(/resources/cat4.jpg);
+  background-image: url(/resources/four.jpg);
   background-size: cover;
   background-position: center;
   /* margin: 40px 0 0 70px; */
@@ -138,7 +146,7 @@ header > h1 {
 .boxmidlefive {
   width: 600px;
   height: 700px;
-  background-image: url(/resources/cat5.jpg);
+  background-image: url(/resources/five.jpg);
   background-size: cover;
   background-position: center;
   /* margin: 40px 0 0 70px; */
@@ -149,7 +157,7 @@ header > h1 {
 .boxmidlesix {
   width: 600px;
   height: 700px;
-  background-image: url(/resources/cat6.jpg);
+  background-image: url(/resources/six.jpg);
   background-size: cover;
   background-position: center;
   /* margin: 40px 0 0 70px; */
@@ -160,7 +168,7 @@ header > h1 {
 .boxmidleseven {
   width: 600px;
   height: 700px;
-  background-image: url(/resources/cat7.jpg);
+  background-image: url(/resources/seven.jpg);
   background-size: cover;
   background-position: center;
   /* margin: 40px 0 0 70px; */
@@ -171,7 +179,7 @@ header > h1 {
 .boxmidleeight {
   width: 600px;
   height: 700px;
-  background-image: url(/resources/cat8.jpg);
+  background-image: url(/resources/eight.jpg);
   background-size: cover;
   background-position: center;
   /* margin: 40px 0 0 70px; */
@@ -182,7 +190,7 @@ header > h1 {
 .boxmidlenine {
   width: 600px;
   height: 700px;
-  background-image: url(/resources/cat9.jpg);
+  background-image: url(/resources/nine.jpg);
   background-size: cover;
   background-position: center;
   /* margin: 40px 0 0 70px; */
@@ -193,7 +201,7 @@ header > h1 {
 .boxmidleten {
   width: 600px;
   height: 700px;
-  background-image: url(/resources/cat10.jpg);
+  background-image: url(/resources/ten.jpg);
   background-size: cover;
   background-position: center;
   /* margin: 40px 0 0 70px; */
