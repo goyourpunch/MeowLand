@@ -15,7 +15,82 @@
       href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
       rel="stylesheet"
     />
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
   </head>
+  <script>
+    /* --- 1. Firebase config: вставь сюда свои данные из консоли Firebase --- */
+    const firebaseConfig = {
+      apiKey: "AIzaSyA6_YmkpdrZnFpLjHb03iJcVE2aml_xuZA",
+      authDomain: "meowland-001.firebaseapp.com",
+      databaseURL:
+        "https://meowland-001-default-rtdb.europe-west1.firebasedatabase.app",
+      projectId: "meowland-001",
+      storageBucket: "meowland-001.appspot.com",
+      messagingSenderId: "292419133402",
+      appId: "1:292419133402:web:9df893e3c94c332b0d2ae3",
+    };
+
+    // Инициализация
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.database();
+
+    /* --- 2. Поставим обработчики на все кнопки — и загрузим начальные значения --- */
+    document.addEventListener("DOMContentLoaded", () => {
+      const boxes = document.querySelectorAll(".box");
+
+      boxes.forEach((box) => {
+        const id = box.dataset.id;
+        const btn = box.querySelector(".like-button");
+        const counter = btn.querySelector(".like-count");
+
+        // Показываем текущее значение из БД
+        const dbRef = db.ref("likes/" + id);
+        dbRef.on("value", (snapshot) => {
+          const val = snapshot.val();
+          counter.textContent = val && val.count ? val.count : 0;
+        });
+
+        // Отметка в localStorage, чтобы ограничить повторные клики от одного пользователя
+        const localKey = "liked_" + id;
+        if (localStorage.getItem(localKey) === "1") {
+          btn.classList.add("liked");
+        }
+
+        // Клик: делаем транзакцию (безопасно инкрементируем/декрементируем)
+        btn.addEventListener("click", () => {
+          const liked = localStorage.getItem(localKey) === "1";
+
+          // transaction обеспечивает корректное изменение в условиях параллельных запросов
+          db.ref("likes/" + id)
+            .transaction((current) => {
+              if (current === null) {
+                // если пусто — создаём
+                return { count: liked ? 0 : 1 };
+              } else {
+                const curCount = current.count || 0;
+                return {
+                  count: liked ? Math.max(0, curCount - 1) : curCount + 1,
+                };
+              }
+            })
+            .then(() => {
+              // обновим localStorage и UI (значение считывается выше через .on('value'))
+              if (liked) {
+                localStorage.removeItem(localKey);
+                btn.classList.remove("liked");
+              } else {
+                localStorage.setItem(localKey, "1");
+                btn.classList.add("liked");
+              }
+            })
+            .catch((err) => {
+              console.error("Ошибка транзакции likes:", err);
+            });
+        });
+      });
+    });
+  </script>
   <body>
     <header>
       <h1>MeowLand - котики, яких ти полюбиш</h1>
@@ -24,101 +99,101 @@
       <div class="carousel-container">
         <div class="carousel-viewport">
           <div class="container">
-            <div class="box">
+            <div class="box" data-id="Tiffany">
               <div class="boxmidleone"></div>
               <div class="name-box">
                 <h2 class="name-cat">Tiffany</h2>
-                <button class="like-button" onclick="toggleLike(this)">
+                <button class="like-button">
                   <img src="/resources/likebutton.png" alt="лайк-котика" />
                   <span class="like-count">0</span>
                 </button>
               </div>
             </div>
-            <div class="box">
+            <div class="box" data-id="Pusia">
               <div class="boxmidletwo"></div>
               <div class="name-box">
                 <h2 class="name-cat">Pusia</h2>
-                <button class="like-button" onclick="toggleLike(this)">
+                <button class="like-button">
                   <img src="/resources/likebutton.png" alt="лайк-котика" />
                   <span class="like-count">0</span>
                 </button>
               </div>
             </div>
-            <div class="box">
+            <div class="box" data-id="Kotik">
               <div class="boxmidlethree"></div>
               <div class="name-box">
                 <h2 class="name-cat">Kotik</h2>
-                <button class="like-button" onclick="toggleLike(this)">
+                <button class="like-button">
                   <img src="/resources/likebutton.png" alt="лайк-котика" />
                   <span class="like-count">0</span>
                 </button>
               </div>
             </div>
-            <div class="box">
+            <div class="box" data-id="Muffin">
               <div class="boxmidlefour"></div>
               <div class="name-box">
-                <h2 class="name-cat">four</h2>
-                <button class="like-button" onclick="toggleLike(this)">
+                <h2 class="name-cat">Muffin</h2>
+                <button class="like-button">
                   <img src="/resources/likebutton.png" alt="лайк-котика" />
                   <span class="like-count">0</span>
                 </button>
               </div>
             </div>
-            <div class="box">
+            <div class="box" data-id="Stella">
               <div class="boxmidlefive"></div>
               <div class="name-box">
-                <h2 class="name-cat">five</h2>
-                <button class="like-button" onclick="toggleLike(this)">
+                <h2 class="name-cat">Stella</h2>
+                <button class="like-button">
                   <img src="/resources/likebutton.png" alt="лайк-котика" />
                   <span class="like-count">0</span>
                 </button>
               </div>
             </div>
-            <div class="box">
+            <div class="box" data-id="Pickles">
               <div class="boxmidlesix"></div>
               <div class="name-box">
-                <h2 class="name-cat">six</h2>
-                <button class="like-button" onclick="toggleLike(this)">
+                <h2 class="name-cat">Pickles</h2>
+                <button class="like-button">
                   <img src="/resources/likebutton.png" alt="лайк-котика" />
                   <span class="like-count">0</span>
                 </button>
               </div>
             </div>
-            <div class="box">
+            <div class="box" data-id="Onyx">
               <div class="boxmidleseven"></div>
               <div class="name-box">
-                <h2 class="name-cat">seven</h2>
-                <button class="like-button" onclick="toggleLike(this)">
+                <h2 class="name-cat">Onyx</h2>
+                <button class="like-button">
                   <img src="/resources/likebutton.png" alt="лайк-котика" />
                   <span class="like-count">0</span>
                 </button>
               </div>
             </div>
-            <div class="box">
+            <div class="box" data-id="Kiki">
               <div class="boxmidleeight"></div>
               <div class="name-box">
-                <h2 class="name-cat">eight</h2>
-                <button class="like-button" onclick="toggleLike(this)">
+                <h2 class="name-cat">Kiki</h2>
+                <button class="like-button">
                   <img src="/resources/likebutton.png" alt="лайк-котика" />
                   <span class="like-count">0</span>
                 </button>
               </div>
             </div>
-            <div class="box">
+            <div class="box" data-id="Oliver">
               <div class="boxmidlenine"></div>
               <div class="name-box">
-                <h2 class="name-cat">nine</h2>
-                <button class="like-button" onclick="toggleLike(this)">
+                <h2 class="name-cat">Oliver</h2>
+                <button class="like-button">
                   <img src="/resources/likebutton.png" alt="лайк-котика" />
                   <span class="like-count">0</span>
                 </button>
               </div>
             </div>
-            <div class="box">
+            <div class="box" data-id="Nova">
               <div class="boxmidleten"></div>
               <div class="name-box">
-                <h2 class="name-cat">ten</h2>
-                <button class="like-button" onclick="toggleLike(this)">
+                <h2 class="name-cat">Nova</h2>
+                <button class="like-button">
                   <img src="/resources/likebutton.png" alt="лайк-котика" />
                   <span class="like-count">0</span>
                 </button>
@@ -163,22 +238,6 @@
     <footer>
       <p class="copyright">© 2025 goyourpunch. All rights reserved.</p>
     </footer>
-    <script>
-      function toggleLike(button) {
-        const countSpan = button.querySelector(".like-count");
-        let count = parseInt(countSpan.textContent);
-
-        if (button.classList.contains("liked")) {
-          count--;
-          button.classList.remove("liked");
-        } else {
-          count++;
-          button.classList.add("liked");
-        }
-
-        countSpan.textContent = count;
-      }
-    </script>
     <script>
       let currentIndex = 0;
 
