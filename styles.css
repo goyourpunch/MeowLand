@@ -1,5 +1,5 @@
 body {
-  background-image: url(/resources/background.jpg);
+  background-image: url(resources/background.jpg);
   margin: 0;
   animation: moveBackgroundToTopRight 20s linear infinite alternate;
 }
@@ -102,7 +102,7 @@ header > h1 {
 .boxmidleone {
   width: 600px;
   height: 700px;
-  background-image: url(/resources/tiffany.jpg);
+  background-image: url(resources/tiffany.jpg);
   background-size: cover;
   background-position: center;
   /* margin: 40px 0 0 70px; */
@@ -113,7 +113,7 @@ header > h1 {
 .boxmidletwo {
   width: 600px;
   height: 700px;
-  background-image: url(/resources/pusia.jpg);
+  background-image: url(resources/pusia.jpg);
   background-size: cover;
   background-position: center;
   /* margin: 40px 0 0 70px; */
@@ -124,7 +124,7 @@ header > h1 {
 .boxmidlethree {
   width: 600px;
   height: 700px;
-  background-image: url(/resources/kotik.jpg);
+  background-image: url(resources/kotik.jpg);
   background-size: cover;
   background-position: center;
   /* margin: 40px 0 0 70px; */
@@ -135,7 +135,7 @@ header > h1 {
 .boxmidlefour {
   width: 600px;
   height: 700px;
-  background-image: url(/resources/four.jpg);
+  background-image: url(resources/four.jpg);
   background-size: cover;
   background-position: center;
   /* margin: 40px 0 0 70px; */
@@ -146,7 +146,7 @@ header > h1 {
 .boxmidlefive {
   width: 600px;
   height: 700px;
-  background-image: url(/resources/five.jpg);
+  background-image: url(resources/five.jpg);
   background-size: cover;
   background-position: center;
   /* margin: 40px 0 0 70px; */
@@ -157,7 +157,7 @@ header > h1 {
 .boxmidlesix {
   width: 600px;
   height: 700px;
-  background-image: url(/resources/six.jpg);
+  background-image: url(resources/six.jpg);
   background-size: cover;
   background-position: center;
   /* margin: 40px 0 0 70px; */
@@ -168,7 +168,7 @@ header > h1 {
 .boxmidleseven {
   width: 600px;
   height: 700px;
-  background-image: url(/resources/seven.jpg);
+  background-image: url(resources/seven.jpg);
   background-size: cover;
   background-position: center;
   /* margin: 40px 0 0 70px; */
@@ -179,7 +179,7 @@ header > h1 {
 .boxmidleeight {
   width: 600px;
   height: 700px;
-  background-image: url(/resources/eight.jpg);
+  background-image: url(resources/eight.jpg);
   background-size: cover;
   background-position: center;
   /* margin: 40px 0 0 70px; */
@@ -190,7 +190,7 @@ header > h1 {
 .boxmidlenine {
   width: 600px;
   height: 700px;
-  background-image: url(/resources/nine.jpg);
+  background-image: url(resources/nine.jpg);
   background-size: cover;
   background-position: center;
   /* margin: 40px 0 0 70px; */
@@ -201,7 +201,7 @@ header > h1 {
 .boxmidleten {
   width: 600px;
   height: 700px;
-  background-image: url(/resources/ten.jpg);
+  background-image: url(resources/ten.jpg);
   background-size: cover;
   background-position: center;
   /* margin: 40px 0 0 70px; */
