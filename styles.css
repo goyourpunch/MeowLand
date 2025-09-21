@@ -241,18 +241,36 @@ header > h1 {
 @media (max-width: 1440px) {
   .carousel-viewport {
     width: 100%;
-    padding: 0 40px;
+    padding: 0 80px;
   }
   .container {
-    gap: 120px;
+    gap: 80px;
     padding: 0;
   }
   .box {
-    width: 500px;
+    width: 50%;
     height: 750px;
   }
   .name-cat {
     font-size: 70px;
+  }
+
+  .name-box::before {
+    justify-self: center;
+  }
+
+  .boxmidleone,
+  .boxmidletwo,
+  .boxmidlethree,
+  .boxmidlefour,
+  .boxmidlefive,
+  .boxmidlesix,
+  .boxmidleseven,
+  .boxmidleeight,
+  .boxmidlenine,
+  .boxmidleten {
+    width: 85%;
+    height: 80%;
   }
 }
 
