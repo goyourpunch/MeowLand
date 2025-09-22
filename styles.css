@@ -45,29 +45,31 @@ header > h1 {
   color: rgb(145, 20, 138);
 }
 
-.carousel-container {
+/* .carousel-container {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  gap: 90px;
-}
+  gap: 100px;
+  width: 100%;
+} */
 
 .carousel-viewport {
   overflow: hidden;
-  width: 2560px;
+  width: 100%;
 }
 
 .container {
   display: flex;
   transition: transform 0.5s ease;
   gap: 200px;
-  padding: 0 0 0 130px;
+  padding-left: 4%;
+  /* padding: 0 0 0 130px; */ ///////////////////////////////////////////////////////////
 }
 
 .carousel-button {
   position: fixed;
   top: 50%;
-  margin-right: 10px;
+  /* margin-right: 10px; */
   opacity: 0.6;
   background: none;
   border: none;
@@ -80,7 +82,12 @@ header > h1 {
   transform: scale(1.2);
 }
 
+.button_scroll {
+  width: 100%;
+}
+
 .back {
+  /* padding-left: 4%; */
   left: 0;
 }
 
@@ -239,16 +246,19 @@ header > h1 {
 
 /* --- Laptop L (≤1440px) --- */
 @media (max-width: 1440px) {
-  .carousel-viewport {
-    width: 100%;
-    padding: 0 80px;
+  header > h1 {
+    font-size: 90px;
   }
+
+  .button_scroll {
+    width: 90%;
+  }
+
   .container {
-    gap: 80px;
-    padding: 0;
+    gap: 190px;
   }
   .box {
-    width: 50%;
+    /* width: 50%; */
     height: 750px;
   }
   .name-cat {
@@ -276,13 +286,16 @@ header > h1 {
 
 /* --- Laptop (≤1024px) --- */
 @media (max-width: 1024px) {
-  .carousel-viewport {
-    width: 100%;
-    padding: 0 20px;
+  header > h1 {
+    font-size: 80px;
   }
+
+  .button_scroll {
+    width: 80%;
+  }
+
   .container {
     gap: 80px;
-    padding: 0;
   }
   .box {
     width: 400px;
@@ -317,6 +330,14 @@ header > h1 {
 
 /* --- Tablet (≤768px) --- */
 @media (max-width: 768px) {
+  header > h1 {
+    font-size: 70px;
+  }
+
+  .button_scroll {
+    width: 70%;
+  }
+
   .container {
     gap: 40px;
   }
@@ -331,11 +352,15 @@ header > h1 {
 
 /* --- Mobile L (≤425px) --- */
 @media (max-width: 425px) {
+  header > h1 {
+    font-size: 60px;
+  }
+
   .carousel-viewport {
-    width: 100%;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
   }
+
   .container {
     gap: 20px;
     padding: 0 10px;
@@ -386,6 +411,10 @@ header > h1 {
 
 /* --- Mobile M (≤375px) --- */
 @media (max-width: 375px) {
+  header > h1 {
+    font-size: 50px;
+  }
+
   .box {
     width: 95%;
   }
@@ -411,6 +440,10 @@ header > h1 {
 
 /* --- Mobile S (≤320px) --- */
 @media (max-width: 320px) {
+  header > h1 {
+    font-size: 40px;
+  }
+
   .box {
     width: 100%;
   }
