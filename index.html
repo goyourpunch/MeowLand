@@ -201,60 +201,74 @@
             </div>
           </div>
         </div>
+        <button class="carousel-button back" onclick="scrollCarousel(-1)">
+          <svg
+            class="button_scroll"
+            width="70"
+            height="70"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M15.5 17C15.5 17.4045 15.2564 17.7691 14.8827 17.9239C14.509 18.0787 14.0789 17.9931 13.7929 17.7071L8.79289 12.7071C8.40237 12.3166 8.40237 11.6834 8.79289 11.2929L13.7929 6.29292C14.0789 6.00692 14.509 5.92137 14.8827 6.07615C15.2564 6.23093 15.5 6.59557 15.5 7.00003V17Z"
+              fill="black"
+            />
+          </svg>
+        </button>
+        <button class="carousel-button next" onclick="scrollCarousel(1)">
+          <svg
+            class="button_scroll"
+            width="70"
+            height="70"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M8.5 17C8.5 17.4045 8.74364 17.7691 9.11732 17.9239C9.49099 18.0787 9.92111 17.9931 10.2071 17.7071L15.2071 12.7071C15.5976 12.3166 15.5976 11.6834 15.2071 11.2929L10.2071 6.29292C9.92111 6.00692 9.49099 5.92137 9.11732 6.07615C8.74364 6.23093 8.5 6.59557 8.5 7.00003V17Z"
+              fill="black"
+            />
+          </svg>
+        </button>
       </div>
-      <button class="carousel-button back" onclick="scrollCarousel(-1)">
-        <svg class="button_scroll"
-          width="70"
-          height="70"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
-            d="M15.5 17C15.5 17.4045 15.2564 17.7691 14.8827 17.9239C14.509 18.0787 14.0789 17.9931 13.7929 17.7071L8.79289 12.7071C8.40237 12.3166 8.40237 11.6834 8.79289 11.2929L13.7929 6.29292C14.0789 6.00692 14.509 5.92137 14.8827 6.07615C15.2564 6.23093 15.5 6.59557 15.5 7.00003V17Z"
-            fill="black"
-          />
-        </svg>
-      </button>
-      <button class="carousel-button next" onclick="scrollCarousel(1)">
-        <svg class="button_scroll"
-          width="70"
-          height="70"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
-            d="M8.5 17C8.5 17.4045 8.74364 17.7691 9.11732 17.9239C9.49099 18.0787 9.92111 17.9931 10.2071 17.7071L15.2071 12.7071C15.5976 12.3166 15.5976 11.6834 15.2071 11.2929L10.2071 6.29292C9.92111 6.00692 9.49099 5.92137 9.11732 6.07615C8.74364 6.23093 8.5 6.59557 8.5 7.00003V17Z"
-            fill="black"
-          />
-        </svg>
-      </button>
     </main>
     <footer>
       <p class="copyright">© 2025 goyourpunch. All rights reserved.</p>
     </footer>
     <script>
-      let currentIndex = 0;
+  let currentIndex = 0; // Текущий индекс слайда (позиция прокрутки)
 
-      function scrollCarousel(direction) {
-        const container = document.querySelector(".container");
-        const boxWidth = 810; // 610px + 200px отступ
-        const visibleCount = 3;
-        const totalBoxes = container.children.length;
-        const maxIndex = totalBoxes - visibleCount;
+  function scrollCarousel(direction) { // Функция для прокрутки карусели
+    const container = document.querySelector(".container"); // Находим ленту со слайдами
+    const boxes = document.querySelectorAll(".box");        // Получаем все карточки
 
-        currentIndex += direction;
-        if (currentIndex < 0) currentIndex = 0;
-        if (currentIndex > maxIndex) currentIndex = maxIndex;
+    const boxWidth = boxes[0].getBoundingClientRect().width + 20; 
+    // Берём ширину первой карточки + 20px (это margin-left и margin-right по 10px)
 
-        const offset = currentIndex * boxWidth;
-        container.style.transform = `translateX(-${offset}px)`;
-      }
-    </script>
+    const visibleCount = Math.round(document.querySelector(".carousel-viewport").offsetWidth / boxWidth); 
+    // Считаем, сколько карточек помещается в видимой области
+
+    const totalBoxes = boxes.length; 
+    // Общее количество карточек
+
+    const maxIndex = Math.max(0, totalBoxes - visibleCount); 
+    // Максимально возможный индекс (чтобы не уехать дальше конца)
+
+    currentIndex += direction; // Увеличиваем или уменьшаем индекс в зависимости от нажатия кнопки
+    if (currentIndex < 0) currentIndex = 0;            // Если ушли влево за пределы — стоп
+    if (currentIndex > maxIndex) currentIndex = maxIndex; // Если ушли вправо за пределы — стоп
+
+    const offset = currentIndex * boxWidth; 
+    // Считаем смещение контейнера в пикселях
+
+    container.style.transform = `translateX(-${offset}px)`; 
+    // Двигаем контейнер на нужное расстояние влево
+  }
+</script>
   </body>
 </html>

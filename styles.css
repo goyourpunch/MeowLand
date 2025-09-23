@@ -45,31 +45,31 @@ header > h1 {
   color: rgb(145, 20, 138);
 }
 
-/* .carousel-container {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 100px;
-  width: 100%;
-} */
+.carousel-container {
+  display: flex; /* Размещаем кнопки и карусель в одну линию */
+  align-items: center; /* Центрируем по вертикали */
+  position: relative; /* Чтобы можно было позиционировать элементы, если надо */
+  overflow: hidden; /* Обрезаем содержимое, выходящее за пределы */
+  max-width: 100%; /* Карусель не шире экрана */
+}
 
 .carousel-viewport {
   overflow: hidden;
   width: 100%;
+  flex: 1;
 }
 
 .container {
-  display: flex;
-  transition: transform 0.5s ease;
-  gap: 200px;
-  padding-left: 4%;
+  display: flex; /* Делаем ленту слайдов в одну линию */
+  transition: transform 0.5s ease; /* Плавная анимация сдвига */
+  /* gap: 100px; */
+  /* padding-left: 4%; */
   /* padding: 0 0 0 130px; */ ///////////////////////////////////////////////////////////
 }
 
 .carousel-button {
   position: fixed;
   top: 50%;
-  /* margin-right: 10px; */
   opacity: 0.6;
   background: none;
   border: none;
@@ -97,14 +97,16 @@ header > h1 {
 
 /* --- Базовые box --- */
 .box {
-  flex: 0 0 610px;
+  flex: 0 0 auto;
+  margin: 0 10px;
   height: auto;
   text-align: center;
   border-radius: 30px;
   margin-top: 40px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Внутри box — фотка */
@@ -216,7 +218,7 @@ header > h1 {
   font-family: "Winky Rough", sans-serif;
   font-weight: 600;
   font-style: normal;
-  font-size: 90px;
+  font-size: 4rem;
   color: rgb(113, 50, 119);
   position: relative;
   z-index: 1;
@@ -464,5 +466,25 @@ header > h1 {
   }
   header > h1 {
     font-size: 24px;
+  }
+}
+
+
+/* --- Адаптив --- */
+@media (max-width: 768px) {
+  .box {
+    width: calc(100% - 20px);  /* На телефоне: 1 карточка в ряд */
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1200px) {
+  .box {
+    width: calc(50% - 20px);   /* На планшете: 2 карточки в ряд */
+  }
+}
+
+@media (min-width: 1201px) {
+  .box {
+    width: calc(33.33% - 20px);/* На компьютере: 3 карточки в ряд */
   }
 }

@@ -1,0 +1,101 @@
+<div class="carousel-wrapper"> <!-- Обертка всей карусели, держит кнопки и контейнер -->
+  <button onclick="scrollCarousel(-1)">‹</button> <!-- Кнопка влево -->
+  
+  <div class="carousel"> <!-- Обертка для скрытия лишних слайдов -->
+    <div class="container"> <!-- Лента со слайдами, которая будет двигаться -->
+      <div class="box">1</div> <!-- Первый слайд -->
+      <div class="box">2</div> <!-- Второй слайд -->
+      <div class="box">3</div> <!-- Третий слайд -->
+      <div class="box">4</div> <!-- Четвертый слайд -->
+      <div class="box">5</div> <!-- Пятый слайд -->
+      <div class="box">6</div> <!-- Шестой слайд -->
+    </div>
+  </div>
+
+  <button onclick="scrollCarousel(1)">›</button> <!-- Кнопка вправо -->
+</div>
+
+
+<script>
+  let currentIndex = 0; // Текущий индекс слайда (позиция прокрутки)
+
+  function scrollCarousel(direction) { // Функция для прокрутки карусели
+    const container = document.querySelector(".container"); // Находим ленту со слайдами
+    const boxes = document.querySelectorAll(".box");        // Получаем все карточки
+
+    const boxWidth = boxes[0].getBoundingClientRect().width + 20; 
+    // Берём ширину первой карточки + 20px (это margin-left и margin-right по 10px)
+
+    const visibleCount = Math.round(document.querySelector(".carousel").offsetWidth / boxWidth); 
+    // Считаем, сколько карточек помещается в видимой области
+
+    const totalBoxes = boxes.length; 
+    // Общее количество карточек
+
+    const maxIndex = Math.max(0, totalBoxes - visibleCount); 
+    // Максимально возможный индекс (чтобы не уехать дальше конца)
+
+    currentIndex += direction; // Увеличиваем или уменьшаем индекс в зависимости от нажатия кнопки
+    if (currentIndex < 0) currentIndex = 0;            // Если ушли влево за пределы — стоп
+    if (currentIndex > maxIndex) currentIndex = maxIndex; // Если ушли вправо за пределы — стоп
+
+    const offset = currentIndex * boxWidth; 
+    // Считаем смещение контейнера в пикселях
+
+    container.style.transform = `translateX(-${offset}px)`; 
+    // Двигаем контейнер на нужное расстояние влево
+  }
+</script>
+
+
+<style>
+  .carousel-wrapper {
+  display: flex;               /* Размещаем кнопки и карусель в одну линию */
+  align-items: center;         /* Центрируем по вертикали */
+  position: relative;          /* Чтобы можно было позиционировать элементы, если надо */
+  overflow: hidden;            /* Обрезаем содержимое, выходящее за пределы */
+  max-width: 100%;             /* Карусель не шире экрана */
+}
+
+.carousel {
+  overflow: hidden;            /* Скрываем лишние слайды, которые за пределами */
+  flex: 1;                     /* Занимает всё доступное место между кнопками */
+}
+
+.container {
+  display: flex;               /* Делаем ленту слайдов в одну линию */
+  transition: transform 0.4s ease; /* Плавная анимация сдвига */
+}
+
+.box {
+  flex: 0 0 auto;              /* Фиксированная ширина, не растягивается */
+  margin: 0 10px;              /* Отступы между карточками */
+  background: #ccc;            /* Серый фон для примера */
+  height: 200px;               /* Высота карточки */
+  border-radius: 10px;         /* Скругляем углы */
+  display: flex;               /* Центрируем контент внутри карточки */
+  justify-content: center;     /* Горизонтально по центру */
+  align-items: center;         /* Вертикально по центру */
+  font-size: 2rem;             /* Крупный текст внутри карточки */
+}
+
+/* --- Адаптив --- */
+@media (max-width: 768px) {
+  .box {
+    width: calc(100% - 20px);  /* На телефоне: 1 карточка в ряд */
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1200px) {
+  .box {
+    width: calc(50% - 20px);   /* На планшете: 2 карточки в ряд */
+  }
+}
+
+@media (min-width: 1201px) {
+  .box {
+    width: calc(33.33% - 20px);/* На компьютере: 3 карточки в ряд */
+  }
+}
+
+</style>
