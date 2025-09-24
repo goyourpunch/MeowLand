@@ -62,6 +62,7 @@ header > h1 {
 .container {
   display: flex; /* Делаем ленту слайдов в одну линию */
   transition: transform 0.5s ease; /* Плавная анимация сдвига */
+  /* margin: 0 100px; */
   /* gap: 100px; */
   /* padding-left: 4%; */
   /* padding: 0 0 0 130px; */ ///////////////////////////////////////////////////////////
@@ -87,7 +88,6 @@ header > h1 {
 }
 
 .back {
-  /* padding-left: 4%; */
   left: 0;
 }
 
@@ -97,8 +97,9 @@ header > h1 {
 
 /* --- Базовые box --- */
 .box {
+  aspect-ratio: 16 / 9; /* ширина : высота */
   flex: 0 0 auto;
-  margin: 0 10px;
+  margin: 0 80px;
   height: auto;
   text-align: center;
   border-radius: 30px;
@@ -188,11 +189,12 @@ header > h1 {
 .name-box {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  /* justify-content: space-between; */
+  text-align: center;
   position: relative;
   height: 100px;
-  width: 500px;
-  margin-left: 100px;
+  width: auto;
+  /* margin-left: 100px; */
   border-radius: 30px;
   overflow: hidden;
 }
@@ -222,7 +224,7 @@ header > h1 {
   color: rgb(113, 50, 119);
   position: relative;
   z-index: 1;
-  margin-left: 100px;
+  /* margin-left: 100px; */
 }
 
 .copyright {
@@ -232,259 +234,70 @@ header > h1 {
   margin: 0;
 }
 
-/* --- 4K (≥2560px) --- */
-@media (min-width: 2560px) {
-  .carousel-viewport {
-    width: 2560px;
-  }
+/* --- 4K (2560px) --- */
+@media (min-width: 1441px) {
   .box {
-    width: 800px;
-    height: 1100px;
-  }
-  .name-cat {
-    font-size: 120px;
+    width: calc(33.33% - 160px); /* На компьютере: 3 карточки в ряд */
   }
 }
 
-/* --- Laptop L (≤1440px) --- */
+/* --- Laptop L (1440px) --- */
 @media (max-width: 1440px) {
-  header > h1 {
-    font-size: 90px;
-  }
-
-  .button_scroll {
-    width: 90%;
-  }
-
-  .container {
-    gap: 190px;
-  }
   .box {
-    /* width: 50%; */
-    height: 750px;
-  }
-  .name-cat {
-    font-size: 70px;
-  }
-
-  .name-box::before {
-    justify-self: center;
-  }
-
-  .boxmidleone,
-  .boxmidletwo,
-  .boxmidlethree,
-  .boxmidlefour,
-  .boxmidlefive,
-  .boxmidlesix,
-  .boxmidleseven,
-  .boxmidleeight,
-  .boxmidlenine,
-  .boxmidleten {
-    width: 85%;
-    height: 80%;
+    margin: 0 70px;
+    width: calc(33.33% - 140px); /* На компьютере: 3 карточки в ряд */
   }
 }
 
-/* --- Laptop (≤1024px) --- */
+/* --- Laptop (1024px) --- */
 @media (max-width: 1024px) {
-  header > h1 {
-    font-size: 80px;
-  }
-
-  .button_scroll {
-    width: 80%;
-  }
-
-  .container {
-    gap: 80px;
-  }
   .box {
-    width: 400px;
-    height: 600px;
-  }
-  .boxmidleone,
-  .boxmidletwo,
-  .boxmidlethree,
-  .boxmidlefour,
-  .boxmidlefive,
-  .boxmidlesix,
-  .boxmidleseven,
-  .boxmidleeight,
-  .boxmidlenine,
-  .boxmidleten {
-    height: 400px;
-  }
-  .name-box {
-    width: 100%;
-    margin-left: 0;
-    justify-content: space-around;
-  }
-  .name-cat {
-    font-size: 50px;
-    margin-left: 0;
-  }
-  .like-button img {
-    width: 50px;
-    height: 50px;
+    margin: 0 60px;
+    width: calc(50% - 120px); /* На планшете: 2 карточки в ряд */
   }
 }
 
-/* --- Tablet (≤768px) --- */
+/* --- Tablet (768px) --- */
 @media (max-width: 768px) {
-  header > h1 {
-    font-size: 70px;
-  }
-
-  .button_scroll {
-    width: 70%;
-  }
-
-  .container {
-    gap: 40px;
-  }
   .box {
-    width: 350px;
-    height: auto;
-  }
-  .name-cat {
-    font-size: 40px;
+    margin: 0 60px;
+    width: calc(50% - 120px); /* На планшете: 2 карточки в ряд */
   }
 }
 
-/* --- Mobile L (≤425px) --- */
+/* --- Mobile L (425px) --- */
 @media (max-width: 425px) {
-  header > h1 {
-    font-size: 60px;
-  }
-
   .carousel-viewport {
+    width: 100%;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
   }
-
-  .container {
-    gap: 20px;
-    padding: 0 10px;
-  }
   .box {
-    flex: 0 0 90%;
-    width: 90%;
+    /* flex: 0 0 90%; */
+    /* width: 90%; */
     height: auto;
-    margin: 10px auto;
     scroll-snap-align: center;
+    margin: 0 35px;
+    width: calc(100% - 70px); /* На телефоне: 1 карточка в ряд */
   }
-  .boxmidleone,
-  .boxmidletwo,
-  .boxmidlethree,
-  .boxmidlefour,
-  .boxmidlefive,
-  .boxmidlesix,
-  .boxmidleseven,
-  .boxmidleeight,
-  .boxmidlenine,
-  .boxmidleten {
-    height: 250px;
-  }
-  .name-box {
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    height: auto;
-    margin-left: 0;
-    padding: 10px 0;
-  }
-  .name-cat {
-    font-size: 28px;
-    margin: 0;
-    text-align: center;
-  }
-  .like-button img {
-    width: 40px;
-    height: 40px;
-  }
+
   .carousel-button {
     display: none;
   }
-  header > h1 {
-    font-size: 36px;
-  }
 }
 
-/* --- Mobile M (≤375px) --- */
+/* --- Mobile M (375px) --- */
 @media (max-width: 375px) {
-  header > h1 {
-    font-size: 50px;
-  }
-
   .box {
-    width: 95%;
-  }
-  .boxmidleone,
-  .boxmidletwo,
-  .boxmidlethree,
-  .boxmidlefour,
-  .boxmidlefive,
-  .boxmidlesix,
-  .boxmidleseven,
-  .boxmidleeight,
-  .boxmidlenine,
-  .boxmidleten {
-    height: 220px;
-  }
-  .name-cat {
-    font-size: 24px;
-  }
-  header > h1 {
-    font-size: 28px;
+    margin: 0 25px;
+    width: calc(100% - 50px); /* На телефоне: 1 карточка в ряд */
   }
 }
 
-/* --- Mobile S (≤320px) --- */
+/* --- Mobile S (320px) --- */
 @media (max-width: 320px) {
-  header > h1 {
-    font-size: 40px;
-  }
-
   .box {
-    width: 100%;
-  }
-  .boxmidleone,
-  .boxmidletwo,
-  .boxmidlethree,
-  .boxmidlefour,
-  .boxmidlefive,
-  .boxmidlesix,
-  .boxmidleseven,
-  .boxmidleeight,
-  .boxmidlenine,
-  .boxmidleten {
-    height: 200px;
-  }
-  .name-cat {
-    font-size: 20px;
-  }
-  header > h1 {
-    font-size: 24px;
-  }
-}
-
-
-/* --- Адаптив --- */
-@media (max-width: 768px) {
-  .box {
-    width: calc(100% - 20px);  /* На телефоне: 1 карточка в ряд */
-  }
-}
-
-@media (min-width: 769px) and (max-width: 1200px) {
-  .box {
-    width: calc(50% - 20px);   /* На планшете: 2 карточки в ряд */
-  }
-}
-
-@media (min-width: 1201px) {
-  .box {
-    width: calc(33.33% - 20px);/* На компьютере: 3 карточки в ряд */
+    margin: 0 20px;
+    width: calc(100% - 40px); /* На телефоне: 1 карточка в ряд */
   }
 }

@@ -241,34 +241,42 @@
       <p class="copyright">© 2025 goyourpunch. All rights reserved.</p>
     </footer>
     <script>
-  let currentIndex = 0; // Текущий индекс слайда (позиция прокрутки)
+      let currentIndex = 0; // Текущий индекс слайда (позиция прокрутки)
 
-  function scrollCarousel(direction) { // Функция для прокрутки карусели
-    const container = document.querySelector(".container"); // Находим ленту со слайдами
-    const boxes = document.querySelectorAll(".box");        // Получаем все карточки
+      function scrollCarousel(direction) {
+        // Функция для прокрутки карусели
+        const container = document.querySelector(".container"); // Находим ленту со слайдами
+        const boxes = document.querySelectorAll(".box"); // Получаем все карточки
 
-    const boxWidth = boxes[0].getBoundingClientRect().width + 20; 
-    // Берём ширину первой карточки + 20px (это margin-left и margin-right по 10px)
+        const style = window.getComputedStyle(boxes[0]);
+        const marginLeft = parseInt(style.marginLeft);
+        const marginRight = parseInt(style.marginRight);
 
-    const visibleCount = Math.round(document.querySelector(".carousel-viewport").offsetWidth / boxWidth); 
-    // Считаем, сколько карточек помещается в видимой области
+        const boxWidth =
+          boxes[0].getBoundingClientRect().width + marginLeft + marginRight;
+        // Теперь ширина карточки учитывает любые margin из CSS
+        
+        const visibleCount = Math.round(
+          document.querySelector(".carousel-viewport").offsetWidth / boxWidth
+        );
+        // Считаем, сколько карточек помещается в видимой области
 
-    const totalBoxes = boxes.length; 
-    // Общее количество карточек
+        const totalBoxes = boxes.length;
+        // Общее количество карточек
 
-    const maxIndex = Math.max(0, totalBoxes - visibleCount); 
-    // Максимально возможный индекс (чтобы не уехать дальше конца)
+        const maxIndex = Math.max(0, totalBoxes - visibleCount);
+        // Максимально возможный индекс (чтобы не уехать дальше конца)
 
-    currentIndex += direction; // Увеличиваем или уменьшаем индекс в зависимости от нажатия кнопки
-    if (currentIndex < 0) currentIndex = 0;            // Если ушли влево за пределы — стоп
-    if (currentIndex > maxIndex) currentIndex = maxIndex; // Если ушли вправо за пределы — стоп
+        currentIndex += direction; // Увеличиваем или уменьшаем индекс в зависимости от нажатия кнопки
+        if (currentIndex < 0) currentIndex = 0; // Если ушли влево за пределы — стоп
+        if (currentIndex > maxIndex) currentIndex = maxIndex; // Если ушли вправо за пределы — стоп
 
-    const offset = currentIndex * boxWidth; 
-    // Считаем смещение контейнера в пикселях
+        const offset = currentIndex * boxWidth;
+        // Считаем смещение контейнера в пикселях
 
-    container.style.transform = `translateX(-${offset}px)`; 
-    // Двигаем контейнер на нужное расстояние влево
-  }
-</script>
+        container.style.transform = `translateX(-${offset}px)`;
+        // Двигаем контейнер на нужное расстояние влево
+      }
+    </script>
   </body>
 </html>
