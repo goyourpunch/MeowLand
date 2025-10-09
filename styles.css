@@ -254,18 +254,25 @@ header > h1 {
 
 /* --- Tablet (768px) --- */
 @media (max-width: 768px) {
+  header > h1 {
+  font-size: 70px;
+  }
   .box {
     margin: 0 60px;
     width: calc(50% - 120px); /* На планшете: 2 карточки в ряд */
   }
 }
 
-/* --- Mobile XL (640px) --- */
-@media (max-width: 640px) {
+/* --- Mobile L (640px) - портретная ориентация - --- */
+@media (max-width: 640px) and (orientation: portrait) {
 }
 
-/* --- Mobile L (425px) --- */
-@media (max-width: 425px) {
+/* --- Mobile L (640px) - горизонтальная ориентация - --- */
+@media (max-width: 640px) and (orientation: landscape) {
+}
+
+/* --- Mobile M (425px) - портретная ориентация - --- */
+@media (max-width: 425px) and (orientation: portrait) {
   header > h1 {
     font-size: 50px;
   }
@@ -313,8 +320,12 @@ header > h1 {
   }
 }
 
-/* --- Mobile M (375px) --- */
-@media (max-width: 375px) {
+/* --- Mobile M (425px) - горизонтальная ориентация - --- */
+@media (max-width: 425px) and (orientation: landscape) {
+}
+
+/* --- Mobile S (375px) - портретная ориентация - --- */
+@media (max-width: 375px) and (orientation: portrait) {
   header > h1 {
     font-size: 40px;
   }
@@ -338,10 +349,9 @@ header > h1 {
   }
 }
 
-/* --- Mobile S (320px) ---(возможно нету актуализации) */ 
-@media (max-width: 320px) {
-  .box {
-    margin: 0 20px;
-    width: calc(100% - 40px); /* На телефоне: 1 карточка в ряд */
+/* --- Mobile S (375px) - горизонтальная ориентация - --- */
+@media (max-width: 375px) and (orientation: landscape) {
+  header > h1 {
+    font-size: 10px;
   }
 }
