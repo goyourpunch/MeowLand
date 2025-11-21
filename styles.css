@@ -229,13 +229,6 @@ header > h1 {
   margin: 0;
 }
 
-/* --- 4K (2560px) --- */
-@media (min-width: 1441px) {
-  .box {
-    width: calc(33.33% - 160px); /* На компьютере: 3 карточки в ряд */
-  }
-}
-
 /* --- Laptop L (1440px) --- */
 @media (max-width: 1440px) {
   .box {
@@ -255,7 +248,7 @@ header > h1 {
 /* --- Tablet (768px) --- */
 @media (max-width: 768px) {
   header > h1 {
-  font-size: 70px;
+    font-size: 70px;
   }
   .box {
     margin: 0 60px;
@@ -263,16 +256,13 @@ header > h1 {
   }
 }
 
-/* --- Mobile L (640px) - портретная ориентация - --- */
-@media (max-width: 640px) and (orientation: portrait) {
-}
+/* перенёс mobile s вниз, бо конфлитируют по размерам */
 
-/* --- Mobile L (640px) - горизонтальная ориентация - --- */
-@media (max-width: 640px) and (orientation: landscape) {
-}
 
-/* --- Mobile M (425px) - портретная ориентация - --- */
+
+/* --- Mobile M (425px) --- */
 @media (max-width: 425px) and (orientation: portrait) {
+  /* Medium phones portrait */
   header > h1 {
     font-size: 50px;
   }
@@ -319,15 +309,70 @@ header > h1 {
     display: none;
   }
 }
-
-/* --- Mobile M (425px) - горизонтальная ориентация - --- */
-@media (max-width: 425px) and (orientation: landscape) {
+@media (max-width: 740px) and (orientation: landscape) {
+  /* Medium phones landscape */
 }
 
-/* --- Mobile S (375px) - портретная ориентация - --- */
+/* --- Mobile L (640px) --- */
+@media (max-width: 640px) and (orientation: portrait) {
+  /* Large phones portrait */
+}
+@media (max-width: 900px) and (orientation: landscape) {
+  /* Large phones landscape */
+}
+
+/* --- Tablet S (768px) --- */
+@media (max-width: 768px) and (orientation: portrait) {
+  /* Small tablets portrait */
+}
+@media (max-width: 1024px) and (orientation: landscape) {
+  /* Small tablets landscape */
+}
+
+/* --- Tablet M (834px) --- */
+@media (max-width: 834px) and (orientation: portrait) {
+  /* Medium tablets portrait */
+}
+@media (max-width: 1112px) and (orientation: landscape) {
+  /* Medium tablets landscape */
+}
+
+/* --- Tablet L (1024px) --- */
+@media (max-width: 1024px) and (orientation: portrait) {
+  /* Large tablets portrait */
+}
+@media (max-width: 1366px) and (orientation: landscape) {
+  /* Large tablets landscape */
+}
+
+/* --- Laptop (1440px) --- */
+@media (max-width: 1440px) {
+  /* Standard laptops */
+}
+
+/* --- Desktop S (1600px) --- */
+@media (max-width: 1600px) {
+  /* Small desktops */
+}
+
+/* --- Desktop M (1920px) --- */
+@media (max-width: 1920px) {
+  /* Full HD desktops */
+}
+
+/* --- Desktop L (2560px) --- */
+@media (min-width: 1921px) {
+  /* Large desktops / 2K / 4K */
+  .box {
+    width: calc(33.33% - 160px); /* На компьютере: 3 карточки в ряд */
+  }
+}
+
+/* --- Mobile S (375px) --- */
 @media (max-width: 375px) and (orientation: portrait) {
+  /* Small phones portrait */
   header > h1 {
-    font-size: 40px;
+    font-size: 40px; 
   }
   .box {
     margin: 0 25px;
@@ -348,9 +393,8 @@ header > h1 {
     font-size: 2rem;
   }
 }
-
-/* --- Mobile S (375px) - горизонтальная ориентация - --- */
-@media (max-width: 375px) and (orientation: landscape) {
+@media (max-width: 667px) and (orientation: landscape) {
+  /* Small phones landscape */
   header > h1 {
     font-size: 10px;
   }
