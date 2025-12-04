@@ -229,24 +229,60 @@ header > h1 {
   margin: 0;
 }
 
-/* --- Laptop L (1440px) --- */
+
+
+/* Adaptive */
+
+/* --- Desktop L (2560px) --- */
+@media (min-width: 1921px) {
+  /* Large desktops / 2K / 4K */
+  .box {
+    width: calc(33.33% - 160px); /* На компьютере: 3 карточки в ряд */
+  }
+}
+
+/* --- Desktop M (1920px) --- */
+@media (max-width: 1920px) {
+  /* Full HD desktops */
+}
+
+/* --- Desktop S (1600px) --- */
+@media (max-width: 1600px) {
+  /* Small desktops */
+}
+
+/* --- Laptop (1440px) --- */
 @media (max-width: 1440px) {
+  /* Standard laptops */
   .box {
     margin: 0 70px;
     width: calc(33.33% - 140px); /* На компьютере: 3 карточки в ряд */
   }
 }
 
-/* --- Laptop (1024px) --- */
-@media (max-width: 1024px) {
+/* --- Tablet L (1024px) --- */
+@media (max-width: 1024px) and (orientation: portrait) {
+  /* Large tablets portrait */
+}
+@media (max-width: 1366px) and (orientation: landscape) {
+  /* Large tablets landscape */
   .box {
     margin: 0 60px;
     width: calc(50% - 120px); /* На планшете: 2 карточки в ряд */
   }
 }
 
-/* --- Tablet (768px) --- */
-@media (max-width: 768px) {
+/* --- Tablet M (834px) --- */
+@media (max-width: 834px) and (orientation: portrait) {
+  /* Medium tablets portrait */
+}
+@media (max-width: 1112px) and (orientation: landscape) {
+  /* Medium tablets landscape */
+}
+
+/* --- Tablet S (768px) --- */
+@media (max-width: 768px) and (orientation: portrait) {
+  /* Small tablets portrait */
   header > h1 {
     font-size: 70px;
   }
@@ -255,8 +291,20 @@ header > h1 {
     width: calc(50% - 120px); /* На планшете: 2 карточки в ряд */
   }
 }
+@media (max-width: 1024px) and (orientation: landscape) {
+  /* Small tablets landscape */
+}
 
-/* перенёс mobile s вниз, бо конфлитируют по размерам */
+/* --- Mobile L (640px) --- */
+@media (max-width: 640px) and (orientation: portrait) {
+  /* Large phones portrait */
+}
+@media (max-width: 900px) and (orientation: landscape) {
+  /* Large phones landscape */
+  header > h1 {
+    /* font-size: 30px; */
+  }
+}
 
 /* --- Mobile M (425px) --- */
 @media (max-width: 425px) and (orientation: portrait) {
@@ -270,8 +318,6 @@ header > h1 {
     scroll-snap-type: x mandatory;
   }
   .box {
-    /* flex: 0 0 90%; */
-    /* width: 90%; */
     height: auto;
     scroll-snap-align: center;
     margin: 0 35px;
@@ -280,7 +326,7 @@ header > h1 {
   .container::before,
   .container::after {
     content: "";
-    flex: 0 0 35px; /* ширина равна margin карточки */
+    flex: 0 0 35px;
   }
 
   /* Внутри box — фотка */
@@ -307,62 +353,10 @@ header > h1 {
     display: none;
   }
 }
-@media (max-width: 740px) and (orientation: landscape) {
+@media (max-width: 780px) and (orientation: landscape) {
   /* Medium phones landscape */
-}
-
-/* --- Mobile L (640px) --- */
-@media (max-width: 640px) and (orientation: portrait) {
-  /* Large phones portrait */
-}
-@media (max-width: 900px) and (orientation: landscape) {
-  /* Large phones landscape */
-}
-
-/* --- Tablet S (768px) --- */
-@media (max-width: 768px) and (orientation: portrait) {
-  /* Small tablets portrait */
-}
-@media (max-width: 1024px) and (orientation: landscape) {
-  /* Small tablets landscape */
-}
-
-/* --- Tablet M (834px) --- */
-@media (max-width: 834px) and (orientation: portrait) {
-  /* Medium tablets portrait */
-}
-@media (max-width: 1112px) and (orientation: landscape) {
-  /* Medium tablets landscape */
-}
-
-/* --- Tablet L (1024px) --- */
-@media (max-width: 1024px) and (orientation: portrait) {
-  /* Large tablets portrait */
-}
-@media (max-width: 1366px) and (orientation: landscape) {
-  /* Large tablets landscape */
-}
-
-/* --- Laptop (1440px) --- */
-@media (max-width: 1440px) {
-  /* Standard laptops */
-}
-
-/* --- Desktop S (1600px) --- */
-@media (max-width: 1600px) {
-  /* Small desktops */
-}
-
-/* --- Desktop M (1920px) --- */
-@media (max-width: 1920px) {
-  /* Full HD desktops */
-}
-
-/* --- Desktop L (2560px) --- */
-@media (min-width: 1921px) {
-  /* Large desktops / 2K / 4K */
-  .box {
-    width: calc(33.33% - 160px); /* На компьютере: 3 карточки в ряд */
+  header > h1 {
+    font-size: 30px;
   }
 }
 
@@ -394,7 +388,7 @@ header > h1 {
 @media (max-width: 667px) and (orientation: landscape) {
   /* Small phones landscape */
   header > h1 {
-    font-size: 10px;
+    font-size: 15px;
   }
 
   .carousel-viewport {
@@ -424,46 +418,45 @@ header > h1 {
   }
 
   .like-button {
-  /* justify-content: end; */
-  font-size: 20px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
+    font-size: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
 
-.like-button img {
-  width: 40px;
-  height: 40px;
-  border: 1px black solid;
-  border-radius: 50%;
-  filter: invert(100%);
-}
+  .like-button img {
+    width: 40px;
+    height: 40px;
+    border: 1px black solid;
+    border-radius: 50%;
+    filter: invert(100%);
+  }
+
+  .container::before,
+  .container::after {
+    content: "";
+    flex: 0 0 5px;
+  }
 
   .name-box {
     display: flex;
     align-items: center;
-    /* justify-content: center ; */
     justify-content: space-between;
     text-align: center;
     position: relative;
     height: 50px;
     width: auto;
-    /* margin-left: 100px; */
+    margin-left: 30px;
     border-radius: 30px;
     overflow: hidden;
   }
 
   .name-cat {
-    /* justify-content: end; */
     font-family: "Winky Rough", sans-serif;
-    /* flex-shrink: 1; */
-    /* min-width: 0; */
     font-weight: 500;
     font-style: normal;
-    /* white-space: nowrap; */
     font-size: 2.3rem;
     color: rgb(113, 50, 119);
     position: relative;
@@ -472,5 +465,9 @@ header > h1 {
 
   .carousel-button {
     display: none;
+  }
+
+  .copyright {
+    font-size: 10px;
   }
 }
